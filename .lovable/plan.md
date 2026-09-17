@@ -7,9 +7,9 @@
 - Add dedicated pages for LocalGPT, PrepOS, and Outlook Signature Management, preserving the current dark engineering-console visual style.
 
 ## Resume-based content
-- LocalGPT: private document intelligence across 500+ mixed-format organizational documents, agentic routing, RAG, Elasticsearch semantic/vector search, and a 35% reduction in irrelevant answers.
-- PrepOS: Mission, Learning, Assessment, and Learner Intelligence engines; 10 learner signals; provider-agnostic AI gateway with OpenRouter and Gemini fallback; MongoDB/Motor; deterministic rubric scoring; immutable evidence; 39-file test suite; and 12 architecture documents enforcing Routes → Services → Data.
-- Outlook Signature Management: centralized Outlook Add-in using ReactJS, JavaScript, Office.js, and SharePoint, supporting Desktop, Web, and Mobile with 100% organization-wide brand compliance.
+- LocalGPT: use the supplied Python, FastAPI, LangChain, LLM, and RAG stack; secure on-premise querying across 500+ mixed-format documents; Elasticsearch semantic/vector search; a 35% reduction in irrelevant answers; and the internal enterprise-team audience.
+- PrepOS: use the supplied Python, FastAPI, React, MongoDB, LLM, RAG, and Agentic AI stack; adaptive interview preparation for candidates, HR, and engineering teams; the OpenRouter/Gemini gateway; the RAG knowledge base; and governance through 12 architecture documents enforcing Routes → Services → Data. Include the resume-backed engine, test-suite, and evidence details.
+- Outlook Signature Management: use the supplied ReactJS, JavaScript, Office.js, and SharePoint stack; centralized signature generation across Desktop, Web, and Mobile; the enterprise IT and brand-management audience; and 100% organization-wide brand compliance.
 
 ## Navigation and presentation
 - Add consistent project-page navigation, clear project numbering, technical stack labels, architecture breakdowns, and verified metrics.
