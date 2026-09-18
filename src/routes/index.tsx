@@ -143,6 +143,8 @@ function Index() {
                 <a
                   key={l.label}
                   href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   {l.label}
