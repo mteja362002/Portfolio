@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import portrait from "@/assets/portrait.jpg";
-import { ArrowButton, BrowserMockup, SectionHeader, Tag } from "@/components/portfolio";
+import { ArrowButton, SectionHeader, Tag } from "@/components/portfolio";
+import { projects } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,11 +23,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NAV = [
-  { id: "prepos", name: "PrepOS", tag: "AI-Powered Interview Operating System" },
-  { id: "localgpt", name: "LocalGPT", tag: "Private Document Intelligence Platform" },
-  { id: "outlook", name: "Outlook Signature Management", tag: "Enterprise Add-in" },
-];
 
 const SKILLS = [
   {
@@ -158,172 +154,70 @@ function Index() {
       </section>
 
       {/* Systems navigator */}
-      <section className="px-6 py-20 md:px-12">
+      <section id="systems" className="scroll-mt-8 px-6 py-20 md:px-12">
         <div className="mx-auto max-w-6xl">
           <SectionHeader eyebrow="Index" title="Systems Navigator" tag="03" />
           <h2 className="font-display text-3xl font-bold sm:text-4xl">
             Systems I&apos;ve Built
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {NAV.map((n) => (
+            {projects.map((p) => (
               <div
-                key={n.id}
+                key={p.slug}
                 className="glass flex items-start justify-between gap-4 rounded-2xl p-6"
               >
                 <div>
-                  <h3 className="font-display text-xl font-semibold">{n.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{n.tag}</p>
+                  <p className="eyebrow">Page {p.page}</p>
+                  <h3 className="font-display mt-2 text-xl font-semibold">
+                    <Link to={`/${p.slug}`} className="transition-colors hover:text-primary">
+                      {p.name}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.descriptor}</p>
                 </div>
-                <ArrowButton label={`Jump to ${n.name}`} href={`#${n.id}`} />
+                <ArrowButton label={`Open ${p.name}`} href={`/${p.slug}`} />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured project */}
-      <section id="prepos" className="surface-panel scroll-mt-8 px-6 py-20 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Featured System" title="PrepOS" tag="2025" />
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
-              <BrowserMockup title="AI Mentor Chat Panel" lines={3} />
-              <BrowserMockup title="Assessment & Evidence Tracking" lines={3} />
-            </div>
-            <BrowserMockup title="Mission Dashboard" lines={6} className="self-start" />
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-2">
-            {["React 19", "FastAPI", "MongoDB (Motor)", "AI Gateway", "OpenRouter / Gemini"].map(
-              (t) => (
-                <Tag key={t}>{t}</Tag>
-              ),
-            )}
-          </div>
-
-          <dl className="mt-10 grid gap-5 sm:grid-cols-3">
-            {[
-              { n: "12", l: "architecture documents" },
-              { n: "39-file", l: "automated test suite" },
-              { n: "100%", l: "deterministic Assessment Engine" },
-            ].map((s) => (
-              <div key={s.l} className="glass rounded-2xl p-6">
-                <dt className="stat-number text-4xl">{s.n}</dt>
-                <dd className="mt-2 text-sm text-muted-foreground">{s.l}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* Engineering breakdown */}
-      <section className="px-6 py-20 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Deep Dive" title="PrepOS" tag="2025" />
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">
-            Engineering Breakdown
-          </h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-2">
-            <ul className="space-y-5">
-              {[
-                {
-                  t: "Mission & Learning Engines",
-                  d: "Deterministic mission composition driven by 10 learner signals (mastery, readiness, retention, and more).",
-                },
-                {
-                  t: "AI Gateway & Knowledge Base",
-                  d: "Provider-agnostic routing (OpenRouter, Gemini fallback), globally cached knowledge base, context-grounded AI Mentor.",
-                },
-                {
-                  t: "Assessment Engine",
-                  d: "Replaced LLM-guesswork scoring with a rubric-based, evidence-tracked evaluation system.",
-                },
-                {
-                  t: "Architecture Governance",
-                  d: "Authored 12 “Engineering Constitution” documents enforcing a strict unidirectional Routes → Services → Data flow.",
-                },
-              ].map((c) => (
-                <li key={c.t} className="glass rounded-2xl p-6">
-                  <h3 className="font-display text-lg font-semibold text-primary">{c.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
-                </li>
-              ))}
-            </ul>
-
-            <div className="glass rounded-2xl p-6">
-              <p className="eyebrow">Request pipeline</p>
-              <ol className="mt-6 space-y-3">
-                {[
-                  "Query",
-                  "Agent Router",
-                  "RAG / Knowledge Base",
-                  "AI Mentor / Assessment Engine",
-                  "Response",
-                ].map((step, i, arr) => (
-                  <li key={step}>
-                    <div className="glass-strong rounded-xl px-4 py-3 text-sm">
-                      <span className="stat-number mr-3 text-xs">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      {step}
-                    </div>
-                    {i < arr.length - 1 && (
-                      <div
-                        aria-hidden="true"
-                        className="mx-auto h-5 w-px bg-primary/40"
-                      />
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Secondary projects */}
+      {/* Project previews */}
       <section className="surface-panel px-6 py-20 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Selected Work" title="Project Gallery" tag="2023–2025" />
-          <div className="grid gap-6 md:grid-cols-2">
-            <article id="localgpt" className="glass scroll-mt-8 rounded-2xl p-6">
-              <BrowserMockup title="LocalGPT — document intelligence" lines={3} />
-              <h3 className="font-display mt-6 text-2xl font-semibold">LocalGPT</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Private document intelligence platform for secure, on-premise answers.
+        <div className="mx-auto max-w-6xl space-y-8">
+          <SectionHeader eyebrow="Selected Work" title="Case Studies" tag="2023–2025" />
+          {projects.map((p) => (
+            <article key={p.slug} className="glass rounded-2xl p-6 md:p-8">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="eyebrow">
+                    {p.year} · {p.descriptor}
+                  </p>
+                  <h3 className="font-display mt-2 text-2xl font-semibold">{p.name}</h3>
+                </div>
+                <ArrowButton label={`Open ${p.name}`} href={`/${p.slug}`} />
+              </div>
+              <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                {p.summary}
               </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {["Python", "FastAPI", "LangChain", "RAG", "Elasticsearch"].map((t) => (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {p.stack.map((t) => (
                   <Tag key={t}>{t}</Tag>
                 ))}
               </div>
-              <p className="mt-5 text-sm text-muted-foreground">
-                <span className="stat-number">500+</span> documents indexed ·{" "}
-                <span className="stat-number">35%</span> fewer irrelevant answers
-              </p>
-            </article>
-
-            <article id="outlook" className="glass scroll-mt-8 rounded-2xl p-6">
-              <BrowserMockup title="Outlook Signature Management" lines={3} />
-              <h3 className="font-display mt-6 text-2xl font-semibold">
-                Outlook Signature Management
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Enterprise add-in delivering governed signatures across every Outlook client.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {["ReactJS", "Office.js", "SharePoint"].map((t) => (
-                  <Tag key={t}>{t}</Tag>
+              <dl className="mt-6 grid gap-4 sm:grid-cols-3">
+                {p.metrics.map((m) => (
+                  <div key={m.label} className="glass rounded-xl p-4">
+                    <dt className="stat-number text-3xl">{m.value}</dt>
+                    <dd className="mt-1 text-xs text-muted-foreground">{m.label}</dd>
+                  </div>
                 ))}
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">
-                <span className="stat-number">100%</span> brand compliance across Desktop, Web
-                and Mobile
-              </p>
+              </dl>
             </article>
-          </div>
+          ))}
         </div>
       </section>
+
 
       {/* Skills matrix */}
       <section className="px-6 py-20 md:px-12">
