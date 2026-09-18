@@ -43,8 +43,8 @@ const SKILLS = [
 ];
 
 const LINKS = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  { label: "GitHub", href: "https://github.com/TEJAMOGADALA" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/m-teja-964842367" },
   { label: "Email", href: "mailto:mogadalateja2002@gmail.com" },
   { label: "Portfolio", href: "https://tejasync-portfolio.lovable.app" },
 ];
