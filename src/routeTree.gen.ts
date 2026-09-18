@@ -10,33 +10,65 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocalgptRouteImport } from './routes/localgpt'
+import { Route as OutlookSignatureManagementRouteImport } from './routes/outlook-signature-management'
+import { Route as PreposRouteImport } from './routes/prepos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocalgptRoute = LocalgptRouteImport.update({
+  id: '/localgpt',
+  path: '/localgpt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OutlookSignatureManagementRoute =
+  OutlookSignatureManagementRouteImport.update({
+    id: '/outlook-signature-management',
+    path: '/outlook-signature-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PreposRoute = PreposRouteImport.update({
+  id: '/prepos',
+  path: '/prepos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/localgpt': typeof LocalgptRoute
+  '/outlook-signature-management': typeof OutlookSignatureManagementRoute
+  '/prepos': typeof PreposRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/localgpt': typeof LocalgptRoute
+  '/outlook-signature-management': typeof OutlookSignatureManagementRoute
+  '/prepos': typeof PreposRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/localgpt': typeof LocalgptRoute
+  '/outlook-signature-management': typeof OutlookSignatureManagementRoute
+  '/prepos': typeof PreposRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/localgpt' | '/outlook-signature-management' | '/prepos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/localgpt' | '/outlook-signature-management' | '/prepos'
+  id:
+    '__root__' | '/' | '/localgpt' | '/outlook-signature-management' | '/prepos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LocalgptRoute: typeof LocalgptRoute
+  OutlookSignatureManagementRoute: typeof OutlookSignatureManagementRoute
+  PreposRoute: typeof PreposRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +80,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/localgpt': {
+      id: '/localgpt'
+      path: '/localgpt'
+      fullPath: '/localgpt'
+      preLoaderRoute: typeof LocalgptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/outlook-signature-management': {
+      id: '/outlook-signature-management'
+      path: '/outlook-signature-management'
+      fullPath: '/outlook-signature-management'
+      preLoaderRoute: typeof OutlookSignatureManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prepos': {
+      id: '/prepos'
+      path: '/prepos'
+      fullPath: '/prepos'
+      preLoaderRoute: typeof PreposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LocalgptRoute: LocalgptRoute,
+  OutlookSignatureManagementRoute: OutlookSignatureManagementRoute,
+  PreposRoute: PreposRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
