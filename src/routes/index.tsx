@@ -143,6 +143,8 @@ function Index() {
                 <a
                   key={l.label}
                   href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   {l.label}
@@ -255,6 +257,8 @@ function Index() {
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             <a
               href="mailto:mogadalateja2002@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="glass rounded-xl p-4 text-sm break-words transition-colors hover:text-primary"
             >
               mogadalateja2002@gmail.com
@@ -274,7 +278,13 @@ function Index() {
             className="mt-8 flex flex-wrap justify-center gap-5 text-sm"
           >
             {LINKS.filter((l) => l.label !== "Email").map((l) => (
-              <a key={l.label} href={l.href} className="text-primary hover:underline">
+              <a 
+                key={l.label} 
+                href={l.href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:underline"
+              >
                 {l.label}
               </a>
             ))}
