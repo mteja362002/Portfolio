@@ -155,6 +155,33 @@ function Index() {
         </div>
       </section>
 
+      {/* Skills matrix */}
+      <section className="px-6 py-20 md:px-12">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeader eyebrow="Capabilities" title="Skills Matrix" tag="Stack" />
+          <h2 className="font-display text-center text-3xl font-bold sm:text-4xl">
+            Skills &amp; Infrastructure
+          </h2>
+          <div className="mt-10 space-y-6">
+            {SKILLS.map((s) => (
+              <div key={s.group} className="grid gap-4 md:grid-cols-[200px_1fr]">
+                <p className="eyebrow pt-2">{s.group}</p>
+                <div className="flex flex-wrap gap-2">
+                  {s.items.map((i) => (
+                    <span
+                      key={i}
+                      className="glass rounded-lg px-4 py-2.5 text-sm text-foreground/90"
+                    >
+                      {i}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Systems navigator */}
       <section id="systems" className="scroll-mt-8 px-6 py-20 md:px-12">
         <div className="mx-auto max-w-6xl">
@@ -217,34 +244,6 @@ function Index() {
               </dl>
             </article>
           ))}
-        </div>
-      </section>
-
-
-      {/* Skills matrix */}
-      <section className="px-6 py-20 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Capabilities" title="Skills Matrix" tag="Stack" />
-          <h2 className="font-display text-center text-3xl font-bold sm:text-4xl">
-            Skills &amp; Infrastructure
-          </h2>
-          <div className="mt-10 space-y-6">
-            {SKILLS.map((s) => (
-              <div key={s.group} className="grid gap-4 md:grid-cols-[200px_1fr]">
-                <p className="eyebrow pt-2">{s.group}</p>
-                <div className="flex flex-wrap gap-2">
-                  {s.items.map((i) => (
-                    <span
-                      key={i}
-                      className="glass rounded-lg px-4 py-2.5 text-sm text-foreground/90"
-                    >
-                      {i}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
