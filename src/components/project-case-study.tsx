@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { BrowserMockup, SectionHeader, Tag } from "@/components/portfolio";
+import { SectionHeader, Tag } from "@/components/portfolio";
+import { ProjectMockups } from "@/components/project-mockups";
 import { projects, type Project } from "@/lib/projects";
 
 export function ProjectCaseStudy({ project }: { project: Project }) {
@@ -45,11 +46,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             ))}
           </div>
 
-          <BrowserMockup
-            title={`${project.name} — ${project.descriptor}`}
-            lines={5}
-            className="mt-10"
-          />
+          <ProjectMockups slug={project.slug} />
         </div>
       </section>
 

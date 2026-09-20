@@ -70,10 +70,12 @@ export function BrowserMockup({
   title,
   lines = 4,
   className = "",
+  children,
 }: {
   title: string;
   lines?: number;
   className?: string;
+  children?: ReactNode;
 }) {
   return (
     <figure className={`glass overflow-hidden rounded-xl ${className}`}>
@@ -84,19 +86,23 @@ export function BrowserMockup({
         <span className="ml-3 truncate text-xs text-muted-foreground">{title}</span>
       </div>
       <div className="space-y-3 p-4">
-        <div className="h-16 rounded-lg bg-primary/10" />
-        <div className="grid grid-cols-3 gap-2">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-8 rounded-md bg-foreground/5" />
-          ))}
-        </div>
-        {Array.from({ length: lines }).map((_, i) => (
-          <div
-            key={i}
-            className="h-2.5 rounded-full bg-foreground/8"
-            style={{ width: `${95 - i * 13}%` }}
-          />
-        ))}
+        {children ?? (
+          <>
+            <div className="h-16 rounded-lg bg-primary/10" />
+            <div className="grid grid-cols-3 gap-2">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="h-8 rounded-md bg-foreground/5" />
+              ))}
+            </div>
+            {Array.from({ length: lines }).map((_, i) => (
+              <div
+                key={i}
+                className="h-2.5 rounded-full bg-foreground/8"
+                style={{ width: `${95 - i * 13}%` }}
+              />
+            ))}
+          </>
+        )}
       </div>
       <figcaption className="sr-only">{title}</figcaption>
     </figure>
