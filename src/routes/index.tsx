@@ -46,7 +46,7 @@ const LINKS = [
   { label: "GitHub", href: "https://github.com/TEJAMOGADALA" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/m-teja-964842367" },
   { label: "Email", href: "https://mail.google.com/mail/?view=cm&fs=1&to=mogadalateja2002@gmail.com" },
-  { label: "Portfolio", href: "https://tejasync-portfolio.lovable.app" },
+  { label: "Portfolio", href: "https://teja-mogadala.lovable.app" },
 ];
 
 function Index() {
