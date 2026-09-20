@@ -45,7 +45,7 @@ const SKILLS = [
 const LINKS = [
   { label: "GitHub", href: "https://github.com/TEJAMOGADALA" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/m-teja-964842367" },
-  { label: "Email", href: "mailto:mogadalateja2002@gmail.com" },
+  { label: "Email", href: "https://mail.google.com/mail/?view=cm&fs=1&to=mogadalateja2002@gmail.com" },
   { label: "Portfolio", href: "https://tejasync-portfolio.lovable.app" },
 ];
 
@@ -255,7 +255,7 @@ function Index() {
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             <a
-              href="mailto:mogadalateja2002@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=mogadalateja2002@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="glass rounded-xl p-4 text-sm break-words transition-colors hover:text-primary"
